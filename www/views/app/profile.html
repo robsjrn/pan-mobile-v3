@@ -1,0 +1,58 @@
+<ion-view class="profile-view">
+  <ion-nav-title>
+    <span>Profile</span>
+    <a class="pull-right" ng-click="logout()">   <i class="icon ion-log-out"></i></a>
+  </ion-nav-title>
+  <ion-content padding="true">
+    <div class="top-content row">
+      <div class="profile-container">
+        <div class="user-image-container">
+          <pre-img ratio="_1_1" helper-class="rounded-image">
+            <img class="user-image" data-ng-src="data:image/png;base64,{{client[0].photo}}" err-SRC="img/avatarimage.png" spinner-on-load>
+          </pre-img>
+        </div>
+        <div class="user-name"></div>
+      </div>
+      
+    </div>
+    <div class="bottom-content">
+      <div class="card">
+          <div class="item">
+                         <p>Your id {{client[0].docid}}</p>        
+                        <p>Your Contact {{client[0].contacts}}</p>            
+                         <p>your Date of Birth  {{client[0].dob | date:'dd/MM/yyyy'}}</p>
+                        <p>Your Pin  {{client[0].pin}}</p>
+                        <p>Your Email {{client[0].email}}</p>
+            </div>     
+        <div class="item" ng-repeat="cust in client">
+           
+              <p >Policy Number <b >{{cust.policyid}}</b></p >
+              <p >Product Name <b >{{cust.productname}}</b></p >
+              <p  >Premium Ksh {{cust.premiumpayable}}  /= </p >
+              <p  >Date of Commencement {{cust.paymentdate | date:'dd/MM/yyyy'}}  </p >
+           
+  
+
+          <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item" ng-click="gotobeneficiaries(cust.rid)">
+              Beneficiaries
+              </a>
+              <a class="tab-item" ng-click="gotospouse(cust.rid)" ng-if="cust.spouseAvailable==1">
+              Spouse
+              </a>
+              <a class="tab-item" ng-click="gotochildren(cust.rid)" ng-if="cust.childrenAvailable==1">
+              Children
+              </a>
+              <a class="tab-item" ng-click="gotoparent(cust.rid)" ng-if="cust.parentAvailable==1">
+               Parents
+              </a>
+            </div>
+
+          </div>
+        
+       
+
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

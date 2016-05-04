@@ -1,0 +1,89 @@
+
+<ion-view title="Payment Details " class="forms-view">
+    <ion-content >
+
+
+      <div class="card transbox2">
+
+        <div class="item item-text-wrap">
+
+          <h2><b>Thank you for Registration </b></h2>
+                  
+                <p>Kindly Choose Your Payment Options </p>
+                       
+                 <div class="list">
+
+             <label class="item item-radio">
+                <input type="radio" name="group1"  ng-model="content" value="mpesa">
+                <div class="item-content">
+                   <b>Pay Now (Mpesa Only )</b>
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+             </label>
+
+             <label class="item item-radio">
+                <input type="radio" name="group1" ng-model="content" value="airtelmoney" >
+                <div class="item-content">
+                   <b>Pay Later</b>
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+             </label>
+
+           
+            
+
+          </div>
+            
+              </div>
+          </div>    
+
+
+
+   <div class="card transbox2">
+
+       
+
+                       <div class="item " ng-show="content == 'mpesa'">
+                        <h3 class="item-text-wrap">Kindly Enter The Mpesa Phone Number Below and Click Submit </h3>
+                        <small>NB. You need to have Your Bonga Pin</small>
+                      
+                        <div class="list">
+                               <div class="item item-input-inset">
+                                  <label class="item item-input-wrapper">   
+                                  <input type="text" placeholder="Phonenumber" ng-model="mpesa.phonenumber">
+                                  </label>
+                                 
+                               </div>
+
+                            
+                                  <div class="item item-input-inset">
+                                <button class="button button-block button-assertive" ng-click="mpesapayment(mpesa)" ng-disabled="diasbleMpesaBtn">
+                                      Submit </button>
+                                           </div>
+                            </div>        
+                                                    
+                 </div>
+                
+          
+
+                       <div class="item item-text-wrap" ng-show="content == 'airtelmoney'">
+                        <h3>Mpesa</h3>
+                          <p >You can  Fund your Account By sending Money ( {{client.premiumpayable}} ) to Our  Mpesa <b>Paybill 120123  Stating Your Invoice No. {{client.invoice}} </b>  As Your Account Number </p>
+                     
+                       <br/>
+                         <h3>Airtel</h3>
+                         <p >You can  Fund your Account By sending Money ( {{client.premiumpayable}} ) to Our Airtel Money  <b>Paybill 120123 Stating Your Invoice No. {{client.invoice}} </b>  As Your Account Number </p>
+
+                        <br/>
+                         <button class="button button-block button-royal" ng-click="done()" >
+                                      Done </button>
+                                                    
+                 </div>
+
+
+
+
+
+        </ion-content>
+  </ion-view>               
+           

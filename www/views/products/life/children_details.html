@@ -1,0 +1,74 @@
+
+<ion-view title="Children Details" class="forms-view">
+    <ion-content >
+          <button class="button  button-royal icon ion-android-add" ng-click="clearChild()">Add </button>
+            <button id="fab" class="button button-assertive pull-right" ng-click="back()">Next</button>
+        
+
+        <div class="card transbox2" >
+                            <div class="item padding">
+                                <p class="assertive" ng-show="childForm.name.$error.required">* Child Name is required</p>
+                                <p class="assertive" ng-show="childForm.dt.$error.required">* Child Birth Date is required</p>
+                              </div>
+
+
+               <div class="list" > 
+                  <div class="item item-text-wrap" >
+                     <h4 class="dark text-center"><b>Premium Payable </b><p> <b>{{client.premiumpayable}}</b></p></h4>
+                     </div>
+                                
+                           <div class="item item-text-wrap" >
+                            <h3 class="text-center">Add Children ( Max Six )</h3>
+                           
+                             </div> 
+                               <form name="childForm" novalidate="" > 
+
+                                    <div class="item item-input-inset">
+                                        <label class="item item-input item-floating-label">  
+                                         <span class="input-label">  <i class="icon ion-edit placeholder-icon"></i>Name</span> 
+                                          <input type="text" class="md-input" name="name" placeholder="Name " ng-model="client.child.childname"  ng-disabled="btnAddchild" id="name"  required >
+                                          </label>
+                                     </div>
+
+                                  <div class="item item-input-inset">
+                                      <label class="item item-input item-floating-label">  Date Of Birth
+                                        <input type="date"  id="dt" name="dt" placeholder="Birth Date " ng-model="client.child.dob"  ng-change="childdate(client.child.dob)" required  />
+                                          </label>
+                                  </div>
+                       
+                                  <div class="text-center royal" ng-show="showchilddob">
+                                    <p> <i>   {{client.child.dob | date:'dd/MM/yyyy'}}</i></p>
+                                      <p><i>   {{client.child.age }}</i></p>
+                                   </div>                     
+                                   </div> 
+                     
+                             </form>
+                               
+                                
+                         
+
+                                    
+          
+
+                    <button class="button  button-calm" ng-click="addChild(client.child)" ng-disabled="childForm.$invalid">Save</button>
+  
+              <div class="list ">
+                         <div class="item item-divider">
+                           Children Details   <h2 class="pull-right">No.of Children Added  {{children.length}}</h2> 
+                          </div>
+                                  <a href="#" class="item "  ng-repeat="chil in children">
+                                      <p>{{$index + 1 }} </p>
+                                      <p> Child Name :  {{chil.childname}} </p>
+                                      <p> Child Date Of Birth  : {{chil.dob | date:'dd/MM/yyyy'}}</p> 
+                                      <p> Client Age  {{chil.age}}</p>
+                                    
+                                    <button class="button button-clear button-assertive pull-right icon-right ion-close" ng-click="delChild(child)"></button> 
+                                    </a>
+                                    
+
+                      </div>
+
+                      
+  </div>
+          </ion-content>  
+                    </ion-modal-view>

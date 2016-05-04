@@ -1,0 +1,62 @@
+
+<ion-view title="Policy Details" class="forms-view">
+    <ion-content >
+    <div class="card transbox2 list">
+       <button class="button pull-left button-calm icon-left ion-chevron-left button-clear" ng-click="landingPage()">Previous </button>
+                 <button class="button  pull-right button-assertive  button-clear icon-right ion-chevron-right "
+                  ng-click="next()" ng-disabled="!client.beneficiaryAdded">
+                  Next
+                 </button>
+         <div class="item">
+           <h4 class="text-center"><b>Premium Payable </b> <b> {{client.premiumpayable}}</b></h4>
+
+         </div>    
+
+            <h6 class="text-center royal" ng-show="beneficiaryAdded">You Need to Add a Beneficiary Before Proceeding </h6>
+           <div class="row">
+              <div class="list">
+                 <div class="item padding">
+                  <button class="button button-clear button-assertive " ng-click="addBeneficiary()" ng-disabled="client.beneficiaryAdded">Add Beneficiary (Mandatory)
+                     
+                  </button>
+                </div>
+                  <div class="item " ng-show="client.beneficiaryAdded" >
+                       <i  class="text-center dark ion-android-person-add"> You Added a Beneficiary <p>Click <a class="assertive" ng-click="next()" >Next </a>to Proceed</p> <p><b>OR</b></p>
+                       <p>  <button class="button button-clear button-balanced padding icon ion-android-add" ng-click="otherMembers()"> 
+                    Add Other Members  (Optional)
+                   
+                  </button></p>
+                       </i>
+                      
+                  </div>
+           
+                   <div class="item " ng-show="client.spouseAdded" >
+                       <i  class="text-center dark ion-android-person-add"> You Added a Spouse </i>
+                      
+                  </div>
+                   <div class="item " ng-show="client.parentAdded" >
+                       <i  class="text-center dark ion-android-person-add"> You Added  Parent (s)</i>
+                      
+                  </div>
+
+                    <div class="item " ng-show="client.childrenAdded" >
+                       <i  class="text-center dark ion-android-person-add"> You Added Children  </i>
+                      
+                  </div>
+             </div> 
+            </div>  
+          
+               <br/>
+               <hr/>
+                   <button class="button  pull-right button-assertive  button-clear icon-right ion-chevron-right "
+                  ng-click="next()" ng-disabled="!client.beneficiaryAdded">
+                  Next
+                 </button>
+     
+         <div >   
+          
+              
+    </div>
+
+    </ion-content>
+  </ion-view>

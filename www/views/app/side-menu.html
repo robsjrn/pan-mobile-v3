@@ -1,0 +1,70 @@
+<ion-side-menus enable-menu-with-back-views="false">
+
+  <ion-side-menu-content class="post-size-14px">
+    <ion-nav-bar class="bar app-top-bar ">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent" >
+   
+
+   </ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left" class="main-menu" >
+    <ion-content>
+      <ion-list>
+        <ion-item class="heading-item item " nav-clear menu-close ui-sref="app.landing">
+          <div class="item-text-center">
+              <h2 class="greeting">Pan-Africa</h2>
+              <p class="message">Group</p>
+          </div>
+        
+        </ion-item>
+      <!--
+        <ion-item class="item-icon-left" nav-clear menu-close ui-sref="app.bookmarks">
+          <i class="icon ion-bookmark"></i>
+          <h2 class="menu-text">Saved for later</h2>
+        </ion-item>
+       --> 
+        <ion-item class="item-icon-left" nav-clear menu-close ui-sref="app.about_us">
+          <i class="icon ion-android-globe"></i>
+          <h2 class="menu-text">About Us</h2>
+        </ion-item>
+        <ion-item class="item-icon-left" nav-clear menu-close ui-sref="app.gateway">
+          <i class="icon ion-umbrella"></i>
+          <h2 class="menu-text">General</h2>
+        </ion-item>
+        <ion-item class="item-icon-left" nav-clear menu-close ui-sref="app.life-products">
+          <i class="icon ion-medkit"></i>
+          <h2 class="menu-text">Pan-Africa life</h2>
+        </ion-item>
+        <ion-item class="item-icon-left" nav-clear menu-close ui-sref="app.assets">
+          <i class="icon ion-cash"></i>
+          <h2 class="menu-text">Assets</h2>
+        </ion-item>
+        <ion-item class="item-icon-left" nav-clear menu-close ui-sref="app.claim">
+          <i class="icon ion-clipboard"></i>
+          <h2 class="menu-text">Make Claim</h2>
+        </ion-item>
+        <ion-item class="item-icon-left" nav-clear menu-close ui-sref="auth.login">
+          <i class="icon ion-log-in"></i>
+          <h2 class="menu-text">Login</h2>
+        </ion-item>
+        <ion-item class="item-icon-left" nav-clear menu-close ui-sref="app.feeds-categories">
+          <i class="icon ion-monitor"></i>
+          <h2 class="menu-text">News</h2>
+        </ion-item>
+        <ion-item class="item-icon-left" nav-clear menu-close ui-sref="app.settings">
+          <i class="icon ion-gear-a"></i>
+          <h2 class="menu-text">Settings</h2>
+        </ion-item>
+
+    </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

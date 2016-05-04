@@ -1,0 +1,110 @@
+
+<ion-view title="Client Details" class="forms-view">
+    <ion-content >
+     
+         <div class="card transbox2">  
+
+          <div class="item">
+           <button class="button button-clear pull-left icon-left ion-chevron-left button-calm" ng-click="PolicyDetails()" >Previous </button>
+              <button class="button button-clear pull-right button-assertive icon-right ion-chevron-right "  ng-click="termsAndCondition()"> Next  </button>  
+         </div>
+
+           <div class="list ">
+           
+
+            <div class="item">
+              <div class="item item-divider">
+               <h2>Confirm Details </h2>
+               <h3>Total Premium Payable <b> {{client.premiumpayable}}</b></h3>
+              </div> 
+              <div class="item item-divider">
+               <h4 class="positive"> Your Details </h4>
+              </div>
+              <div class="item item-text-wrap">
+             
+                <p>Your id {{client.idnumber}}</p>
+                <p>Your Contact {{client.contact}}</p>            
+                 <p>your Date of Birth  {{client.dob | date:'dd/MM/yyyy'}}</p>
+                  <p>Your Age  {{client.age}}</p>
+                    <p>Your Pin  {{client.pin}}</p>
+                     <p>Your Email {{client.email}}</p>
+              </div>
+             
+            </div>
+
+              <div class="item">
+              <div class="item item-divider">
+                <h4 class="positive"> Beneficiary Details </h4> 
+              </div>
+              <div class="item item-text-wrap">
+              <p> Beneficiary Name  {{client.beneficiary.name}}</p>
+              <p> Beneficiary Id  {{client.beneficiary.id}}</p>
+               <p> Beneficiary Contact {{client.beneficiary.contacts}}</p>
+               <p>Beneficiary Date of Birth   {{client.beneficiary.dob | date:'dd/MM/yyyy'}}</p>
+              
+              </div>
+              
+            </div>
+
+            <div class="item">
+              <div class="item item-divider">
+               <h4 class="positive">  Spouse Details </h4>
+              </div>
+              <div class="item item-text-wrap">
+               <p>Client Spouse Name  :  {{client.spouse.name}}</p>
+                <p>Spouse Id  :  {{client.spouse.id}}</p>
+                 <p>Spouse Date Of Birth   :  {{client.spouse.dob | date:'dd/MM/yyyy'}}</p>
+              </div>
+              
+            </div>
+
+            <div class="item">
+              <div class="item item-divider">
+               <h4 class="positive">  Children Details 
+                <span >#No.  {{client.children.length}}</span>
+
+              </h4>
+              </div>
+              <div class="item item-text-wrap" ng-repeat="child in client.children">
+                 <p>{{$index + 1 }} </p>
+                <p> Child Name :  {{child.childname}} </p>
+                <p> Child Age : {{child.age}}</p> 
+                
+              </div>
+              
+            </div>
+
+
+            <div class="item">
+              <div class="item item-divider">
+               <h4 class="positive">  Parents Details  
+                <span >#No.   {{parents.length}}</span> 
+              </h4>
+              </div>
+              <div class="item item-text-wrap"  ng-repeat="parent in parents">
+                <p>{{$index + 1 }} </p>
+                <p> Parent Name :  {{parent.name}} </p>
+                <p> Parent Age : {{parent.age}}</p> 
+              </div>
+              
+            </div>
+
+              <div class="item item-divider">
+               
+               <h3>Total Premium Payable <b> {{client.premiumpayable}}</b></h3>
+              </div> 
+
+            
+          
+
+                    <button class="button button-clear pull-left icon-left ion-chevron-left button-calm" ng-click="PolicyDetails()" >Previous </button>
+              <button class="button  button-clear button-assertive pull-right icon-right ion-chevron-right "  ng-click="termsAndCondition()"> Next  </button>
+         
+            
+ 
+          </div> 
+
+          </div> 
+
+      </ion-content>
+  </ion-view>      

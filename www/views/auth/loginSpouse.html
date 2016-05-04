@@ -1,0 +1,28 @@
+<ion-view class="profile-view">
+  <ion-nav-title>
+    <span>Spouse Details </span>
+    <a class="pull-right" ng-click="logout()">   <i class="icon ion-log-out"></i></a>
+  </ion-nav-title>
+
+    <ion-content >
+                
+
+          
+            <h4 class="text-center calm">Spouse Details </h4>
+    <div class="card"  >
+      <div class="list">
+      	 <div class="item">
+              <h3 class="text-center ">Names <b >{{spouse.spousename}}</b></h3>
+              <h3 class="text-center ">Identification <b >{{spouse.spouseid}}</b></h3>
+              <h3 class="text-center ">Date of Birth   {{spouse.spousedob | date:'dd/MM/yyyy'}} </h3>
+               <h3 class="text-center ">Age  {{spouse.spouseage}}  </h3>
+        </div>
+      </div>  
+     <div class="item">
+      <button class="button button-clear pull-left icon-left ion-chevron-left button-calm" ng-click="back()" >Previous </button> 
+     </div>   
+                         
+   </ion-content> 
+               
+      </ion-view>           
+

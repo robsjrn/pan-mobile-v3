@@ -1,0 +1,82 @@
+
+
+<ion-view title="Umash" class="forms-view" >
+  <ion-content>
+    <ul class="card list transbox2">
+
+  <form name="registrationForm" novalidate="" > 
+    <div class="item">
+           <button class="button button-clear pull-left icon-left ion-chevron-left button-calm" ng-click="back()" >Previous </button>
+        </div>  
+        
+     <div class="item item-input item-select padding-right"> 
+
+       <button class="button button-outline button-block " ng-click="show()">
+            Select identity Type
+     </button>
+   </div>
+ 
+        <label class="item item-input item-floating-label">
+         <span class="input-label"><i class="icon ion-edit placeholder-icon"></i>{{client.doctype.name}}</span>
+        <input type="text" name="idnum" placeholder="{{client.doctype.name}}" ng-model="client.idnumber" ng-minlength="4" ng-maxlength="dctype.maxlength" required>
+      </label>
+
+      <label class="item item-input item-floating-label">Date of Birth
+        <input type="date" name="Dob" placeholder="Date of Birth " ng-model="client.dob"  ng-change="clientdateChange(client.dob)" required >
+      </label>
+
+               <div class="text-center" ng-show="showClientAge">
+                       <i  style="color:#2e2eb8;"> {{client.dob | date: "yyyy-MM-dd"}}</i>
+                       <i style="color:#2e2eb8;"><p>Age  {{client.age}}</p></i>
+              </div>
+
+      <label class="item item-input item-floating-label">
+       <span class="input-label"><i class="icon ion-edit placeholder-icon"></i>Phone Number</span>
+        <input type="tel" placeholder="Your phone" name="phone" ng-model="client.contact" ng-minlength="10" ng-maxlength="20" required>
+      </label>
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label"><i class="icon ion-edit placeholder-icon"></i>Pin</span>
+        <input type="text" placeholder="Pin" name="pin" ng-model="client.pin" ng-minlength="5" ng-maxlength="20" required>
+      </label>
+
+        
+
+      <label class="item item-input item-floating-label">
+       <span class="input-label"><i class="icon ion-edit placeholder-icon"></i>Email</span>
+        <input  type="email" name="email" placeholder="Email " ng-model="client.email">
+      </label>
+
+           
+  </form>
+
+  <div class="padding">
+    <p class="assertive" ng-show="registrationForm.idnum.$error.required">* ID is required</p>
+    <p class="assertive" ng-show="registrationForm.idnum.$error.maxlength">*ID  can be at most 14 characters long.</p>
+    <p class="assertive" ng-show="registrationForm.idnum.$error.minlength">*ID can be at least 4 characters long.</p>
+
+    <p class="assertive" ng-show="registrationForm.Dob.$error.required">* Date of Birth is required</p>
+
+    <p class="assertive" ng-show="registrationForm.phone.$error.required">* Phone is required</p>
+     <p class="assertive" ng-show="registrationForm.phone.$error.maxlength">*Phone must be Less than 20 Characters</p>
+    <p class="assertive" ng-show="registrationForm.phone.$error.minlength">*Phone must be More than 10 Characters</p>
+
+    <p class="assertive" ng-show="registrationForm.pin.$error.required">* Pin is required</p>
+     <p class="assertive" ng-show="registrationForm.pin.$error.maxlength">*Pin must be Less than 20 Characters </p>
+    <p class="assertive" ng-show="registrationForm.pin.$error.minlength">*Pin must be More than 5 Characters</p>
+
+
+
+    <p class="assertive" ng-show="registrationForm.email.$invalid">*Email Must be Valid Mail Address </p>
+  </div>
+
+    <div class="padding">
+        <button class="button button-full icon-right ion-chevron-right button-assertive" ng-click="PolicyDetails()" ng-disabled="registrationForm.$invalid">
+            Next
+          </button>
+   </div>
+      
+      </div>
+    </ul>
+  </ion-content>
+</ion-view>

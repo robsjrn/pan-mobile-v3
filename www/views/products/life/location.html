@@ -1,0 +1,25 @@
+
+
+<ion-view class="maps-view">
+ <ion-nav-title>
+    <span>Our Locations </span>
+  </ion-nav-title>
+  <ion-content scroll="false">
+    <div class="mapWrap"  data-tap-disabled="true">
+      <div class="row center-map-action">
+        <div class="col">
+          <div class="list">
+            <div class="item item-input-inset">
+              <a class="button button-icon icon ion-pinpoint" ng-click="centerOnMe()"></a>
+              <label class="item-input-wrapper">
+                <input type="text" placeholder="My Location" disabled ng-model="my_location">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <div id="map" data-tap-disabled="true"></div>
+   
+</ion-view>
+

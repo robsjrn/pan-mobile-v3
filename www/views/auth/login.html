@@ -1,0 +1,47 @@
+<ion-view class="login-view auth-view" cache-view="false">
+  <ion-content scroll="false">
+    <div class="row">
+      <div class="col col-center">
+        <div class="card login-container transbox2" content-tabs tabsdata='tabsdata'>
+          <form name="login_form" class="" novalidate ng-cloak>
+            <my-tabs>
+              <my-tab title="Idnumber">
+                <div class="list">
+                  <label class="item item-input">
+                    <input type="text" placeholder="ID Number" name="user_idnum" ng-model="user.idnumber" required>
+                  </label>
+                  <label class="item item-input" show-hide-container>
+                    <input type="password" placeholder="Password" name="user_password" ng-model="user.password" required show-hide-input>
+                  </label>
+                </div>
+              </my-tab>
+              <my-tab title="Phone">
+                <div class="list">
+                  <label class="item item-input">
+                    <input type="text" placeholder="Phone number" name="user_phone" ng-model="user.phone" required>
+                  </label>
+                  <label class="item item-input" show-hide-container>
+                    <input type="password" placeholder="Password" name="user_password2" ng-model="user.phonepassword" required  show-hide-input>
+                  </label>
+                </div>
+              </my-tab>
+            </my-tabs>
+            <div class="item item-body bottom-content">
+              <button type="submit" class="button button-positive button-block" ng-click="doLogIn()" ng-disabled="(selected_tab=='Idnumber') ? (login_form.user_idnum.$invalid || login_form.user_password.$invalid) : ((selected_tab=='Phone') ? (login_form.user_phone.$invalid || login_form.user_password2.$invalid) : false)">
+                Log In
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="alternative-actions">
+          <a class="forgot-password button button-small button-clear button-light" ui-sref="auth.forgot-password">
+            Forgot Password?
+          </a>
+          <a class="sign-up button button-small button-clear button-light icon ion-home" ui-sref="app.landing">
+            Products
+          </a>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

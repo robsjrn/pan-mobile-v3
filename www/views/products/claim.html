@@ -1,0 +1,58 @@
+<ion-view class="maps-view">
+  <ion-nav-title>
+    <span>Claim</span>
+  </ion-nav-title>
+  <ion-content scroll="false">
+       <div class="card list">
+   
+          <div class="item item-text-wrap">
+              
+                   <form name="claimForm" novalidate >   
+                            
+                                      <label class="item item-input item-floating-label">  
+                                    <span class="input-label">  <i class="icon ion-edit placeholder-icon"></i>Policy Number Or Id Number</span>
+                                      <input type="text" class="md-input" name="name" placeholder="Policy Number Or Id Number " ng-model="claim.doc"  id="name"  required>
+                                      </label>
+
+
+                                
+                                   <div class="form-errors text-center" ng-messages="claimForm.name.$error" >
+                                      <div ng-messages-include="templates/form-errors.html"></div>   
+                                    </div>
+
+                                  
+
+                                
+                                    <label class="item item-input item-floating-label"> 
+                                      <span class="input-label">  <i class="icon ion-edit placeholder-icon"></i>Phone Number </span>  
+                                      <input type="text" class="md-input" name="contact" placeholder="Phone Number" ng-model="claim.contacts"  id="contact" ng-minlength="10" ng-maxlength="20" required>
+                                    </label>
+                                 
+
+                                  <div class="form-errors text-center" ng-messages="claimForm.contact.$error" >
+                                      <div ng-messages-include="templates/form-errors.html"></div>   
+                                    </div>
+                                
+
+                                
+                               
+                                  
+                            </form>
+
+                            <button class="button button-block button-royal" ng-disabled="claimForm.$invalid" ng-click="saveClaim(claim)">Submit</button>
+                            <p class="item-text-center">OR</p>
+                      
+                              <button class=" button button-block  button-clam" ui-sref="app.image-picker">
+                                Upload Claim Documents
+                              </button>
+                           
+                              
+                 
+                 
+          </div>
+        
+         
+        </div>
+
+  </ion-content>
+</ion-view>

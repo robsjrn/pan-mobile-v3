@@ -1,0 +1,89 @@
+<ion-view class="profile-view">
+  <ion-nav-title>
+    <span>Beneficiary Details </span>
+    <a class="pull-right" ng-click="logout()">   <i class="icon ion-log-out"></i></a>
+  </ion-nav-title>
+    <ion-content padding="true">
+
+        <button class="button button-fab button-assertive icon ion-edit" ng-click="editBeneficiary()"></button>
+        
+                
+            <h4 class="text-center">Beneficiary Details </h4>
+    <div class="card" >
+      <div class="list">
+       
+              
+
+      	 <div class="item" ng-show="!editbeneficiary">
+              <h3 class="text-center ">Names <b >{{beneficiaries.beneficiaryNames}}</b></h3>
+              <h3 class="text-center ">Identification <b >{{beneficiaries.beneficiaryId}}</b></h3>
+              <h3 class="text-center ">Date of Birth   {{beneficiaries.beneficiaryDob | date:'dd/MM/yyyy'}} </h3>
+              <h3 class="text-center ">Contact  {{beneficiaries.beneficiaryContacts }}  </h3>
+               <h3 class="text-center ">Age  {{beneficiaries.beneficiaryAge }}  </h3>
+        </div>
+
+
+         <div class="item" ng-show="editbeneficiary">
+             <form name="beneficiaryForm" novalidate >   
+                            
+                                      <label class="item item-input item-floating-label">  
+                                    <span class="input-label">  <i class="icon ion-edit placeholder-icon"></i>Name</span>
+                                      <input type="text" class="md-input" name="name" placeholder="Name " ng-model="client.beneficiary.name"  id="name"  required>
+                                      </label>
+
+
+                                
+                                   <div class="form-errors text-center" ng-messages="beneficiaryForm.name.$error" >
+                                      <div ng-messages-include="templates/form-errors.html"></div>   
+                                    </div>
+
+                                  
+
+                                
+                                    <label class="item item-input item-floating-label">  
+                                      <span class="input-label">  <i class="icon ion-edit placeholder-icon"></i>ID Number</span>
+                                      <input type="text" class="md-input" name="id" placeholder="ID Number" ng-model="client.beneficiary.id" id="id" required>
+                                    </label>
+                                
+
+                                  <div class="form-errors text-center" ng-messages="beneficiaryForm.id.$error" >
+                                      <div ng-messages-include="templates/form-errors.html"></div>   
+                                    </div>
+
+                               
+                                    <label class="item item-input item-floating-label"> 
+                                      <span class="input-label">  <i class="icon ion-edit placeholder-icon"></i>Phone Number </span>  
+                                      <input type="text" class="md-input" name="contact" placeholder="Phone Number" ng-model="client.beneficiary.contacts"  id="contact" ng-minlength="10" ng-maxlength="20" required>
+                                    </label>
+                                 
+
+                                  <div class="form-errors text-center" ng-messages="beneficiaryForm.contact.$error" >
+                                      <div ng-messages-include="templates/form-errors.html"></div>   
+                                    </div>
+                                 
+                                 
+                                      <label class="item item-input item-floating-label"> 
+                                      Date of Birth 
+                                        <input type="date"  id="dt" name="Dob" placeholder="Birth Date " ng-model="client.beneficiary.dob"  ng-change="beneficiarydob(client.beneficiary.dob)" required />
+                                         
+                                        </label>
+                                  
+
+                                    <div class="text-center" >
+                                       <i  style="color:#2e2eb8;"> {{client.beneficiary.dob | date: "yyyy-MM-dd"}}</i>
+                                       <i style="color:#2e2eb8;"><p>Age  {{client.beneficiary.age}}</p></i>
+                                     </div>
+                               
+                                  
+                            </form>
+
+                             <button class="button button-block button-royal" ng-disabled="beneficiaryForm.$invalid" ng-click="savebeneficiary(client.beneficiary)">Save</button>
+        </div>
+      </div>    
+     <div class="item">
+      <button class="button button-clear pull-left icon-left ion-chevron-left button-calm" ng-click="back()" >Previous </button> 
+     </div>                
+   </ion-content> 
+               
+      </ion-view>           
+

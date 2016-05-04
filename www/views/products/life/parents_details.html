@@ -1,0 +1,71 @@
+
+<ion-view title="Parents Details" class="forms-view">
+    <ion-content >
+        <form name="parentForm" novalidate > 
+          <button class="button button-fab button-royal icon ion-android-add" ng-click="clearparent()">Add</button>
+          <button id="fab" class="button button-assertive pull-right" ng-click="back()">Next</button>
+            <div class="card transbox2"> 
+
+                             <div class="item padding">
+                                <p class="assertive" ng-show="parentForm.pname.$error.required">* Parent Name is required</p>
+                                <p class="assertive" ng-show="parentForm.pdt.$error.required">* Parent Birth Date is required</p>
+                              </div>
+
+                <h5  class="dark text-center">Premium  <b>{{client.premiumpayable}}</b></h5>
+                    
+                        
+                            <h3 class="text-center">Parent(s)  ( Max Four )</h3>
+                           
+                             <div class="list">
+                              
+                                    <div class="item item-input-inset">
+                                            <label class="item item-input item-floating-label">   
+                                              <span class="input-label">  <i class="icon ion-edit placeholder-icon"></i>Name</span> 
+                                            <input type="text" class="md-input" name="pname" placeholder="Name " ng-model="client.parent.name" id="pname"  required>
+                                            </label>
+                                        </div>
+
+                                 
+                                    <div class="item item-input-inset">
+                                  
+                                      <label class="item item-input item-floating-label"> Date of Birth
+                                       <input type="date"  id="pdt" name="pdt" placeholder="Birth Date " ng-model="client.parent.dob"  ng-change="parentChange(client.parent.dob)" required  />
+                                      </label>
+
+                                      
+                                  </div>
+
+                                   <div  ng-show="showParentage">
+
+                                    <div class="royal text-center">
+                                            <i style="color:#2e2eb8;" ><p>Age  {{client.parent.age}}</p></i>
+                                         </div>
+                                     </div> 
+                                    
+                             </div>
+                          
+               </form> 
+      <button class="button  button-calm icon " ng-click="addparent(client.parent)"
+
+          ng-disabled="parentForm.$invalid">Save</button>
+                 <div class="list">
+                          <div class="item item-text-wrap" >
+                          Parent Details   <h2 class="pull-right">No.of Parents Added  {{parents.length}}</h2> 
+                          </div>
+                          <a class="item "   ng-repeat="parent in parents">
+                                 
+                                      <p>{{$index + 1 }} </p>
+                                      <p> Parent Name :  {{parent.name}} </p>
+                                      <p> Parent Name :  {{parent.dob | date:'dd/MM/yyyy' }} </p>
+                                      <p> Parent Age :   {{parent.age}}</p> 
+                                      
+                                    <button class="button button-clear button-assertive pull-right icon-right ion-close"  ng-click="delParent(parent)"></button> 
+                                  
+                             </a>       
+
+                      </div>
+            </div>          
+      
+
+          </ion-content>  
+</ion-view>
