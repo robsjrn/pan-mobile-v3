@@ -12,6 +12,32 @@ angular.module('your_app_name.services', [])
 })
 
 
+.service('fileUpload', ['$http','$ionicLoading', function ($http,$ionicLoading) {
+            this.uploadFileToUrl = function(file, uploadUrl){
+               var fd = new FormData();
+              for (var i = 0; i < file.length; i++){
+                   fd.append('file', file[i]);
+                 }
+                 $ionicLoading.show({
+                      template: 'Uploading Claim Documents'
+                    });
+                            
+               $http.post(uploadUrl, fd, {
+                  transformRequest: angular.identity,
+                  headers: {'Content-Type': undefined}
+               })
+            
+               .success(function(){
+                       $ionicLoading.hide();
+               })
+            
+               .error(function(data){
+                    $ionicLoading.hide();
+               });
+            };
+    }]) 
+
+
 .factory('ageCalc', function() {
   var age;
   var ageService={};

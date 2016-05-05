@@ -18,24 +18,24 @@
       <input type="text" id="comments" name ="comments" placeholder="Comments" ng-model="feedback.comments" required>
       </label>
  
-<div class="item">
-   <button class="button button-block button-royal" ng-disabled="feedbackForm.$invalid" required ng-click="sendcomment()">
-   Submit
-</button>
-</div>
-<div class="item">
-<p class="text-center">OR</p>
-</div>
- <a class="item item-icon-left item-icon-right" href="#" ng-controller="SendMailCtrl" ng-click="sendMail()">
-        <i class="icon ion-email"></i>
-        <div>
-          <span class="title">Send email</span>
-    
-        </div>
-      </a>
-</div>
+          <div class="item">
+             <button class="button button-block button-royal" ng-disabled="feedbackForm.$invalid" required ng-click="sendcomment(feedback)">
+             Submit
+          </button>
+          </div>
+          <div class="item">
+          <p class="text-center">OR</p>
+          </div>
+           <a class="item item-icon-left item-icon-right" href="#" ng-controller="SendMailCtrl" ng-click="sendMail()">
+                  <i class="icon ion-email"></i>
+                  <div>
+                    <span class="title">Send email</span>
+              
+                  </div>
+                </a>
+          </div>
 
-</form>
+          </form>
 
-  </ion-content>
-</ion-view>
+            </ion-content>
+          </ion-view>

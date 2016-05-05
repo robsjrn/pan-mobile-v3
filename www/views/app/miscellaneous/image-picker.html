@@ -1,6 +1,6 @@
 <ion-view class="image-picker-view">
   <ion-nav-title>
-    <span>Image picker (Claim documents)</span>
+    <span>Upload Claim documents </span>
   </ion-nav-title>
   <ion-content class="padding">
     <button class="button button-block button-dark" ng-click="selImages()">
@@ -14,10 +14,7 @@
         <img ng-src="{{img}}">
       </div>
       <div class="item tabs tabs-secondary tabs-icon-left">
-        <a class="tab-item image-option" href="#" ng-click="shareImage(img)">
-          <i class="icon ion-share"></i>
-          upload Image(s)
-        </a>
+    
         <a class="tab-item assertive image-option" href="#" ng-click="removeImage(img)">
           <i class="icon ion-trash-a assertive"></i>
           Remove

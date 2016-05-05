@@ -8,19 +8,20 @@ angular.module('your_app_name.controllers', [])
 
 })
 
-.controller('feedbackCtrl', function($scope,customerFactory,$ionicLoading,$ionicPopup) {
- $scope.sendcomment=function(){
+.controller('feedbackCtrl', function($scope,$state,customerFactory,$ionicLoading,$ionicPopup) {
+ $scope.sendcomment=function(feedback){
   $ionicLoading.show({
       template: ' Sending Your Feedback '
     });
-    customerFactory.Comments($scope.feedback) 
+    customerFactory.Comments(feedback) 
     .success(function(data) { 
            $ionicLoading.hide(); 
-          
+
                 var alertPopup = $ionicPopup.alert({
                                   title: ' Feedback ',
                                   template: '<p> Feedback Received </p>'
-                                });    
+                                });  
+                                $state.go('app.landing');  
                                                                         
                }) 
              .error(function(data) {                     
@@ -328,8 +329,8 @@ return data;
 			function (isAvailable) {
 				// alert('Service is not available') unless isAvailable;
 				cordova.plugins.email.open({
-					to:      'dkitonga@pan-africa.com',
-					cc:      'gwairimu@pan-africa.com',
+					to:      'customercare@pan-africa.com',
+					cc:      'customercare@pan-africa.com',
 				   // bcc:     ['john@doe.com', 'jane@doe.com'],
 					subject: 'App Feedback',
 					body:    'Feedback'
@@ -774,7 +775,7 @@ GoogleMaps.init("AIzaSyCjqTsAy0MIDvr5olXmS9nuC4PdQR0PsKA");
 })
 
 
-.controller('ImagePickerCtrl', function($scope, $rootScope, $cordovaCamera) {
+.controller('ImagePickerCtrl', function($scope, $rootScope, $state,$cordovaCamera,fileUpload,API_ENDPOINT) {
 
 	$scope.images = [];
 
@@ -799,12 +800,18 @@ GoogleMaps.init("AIzaSyCjqTsAy0MIDvr5olXmS9nuC4PdQR0PsKA");
 		$scope.images = _.without($scope.images, image);
 	};
 
-	$scope.shareImage = function(image) {
+	$scope.upload = function(image) {
 		window.plugins.socialsharing.share(null, null, image);
+  
 	};
 
 	$scope.shareAll = function() {
-		window.plugins.socialsharing.share(null, null, $scope.images);
+	//	window.plugins.socialsharing.share(null, null, $scope.images);
+     var file = $scope.images;
+
+               var uploadUrl = API_ENDPOINT.url +"Umash/rest/client/uploadclaimdoc";
+               fileUpload.uploadFileToUrl(file,uploadUrl);
+               $state.go('app.claim');
 	};
 })
 
